@@ -1,0 +1,73 @@
+                      body {
+                        font-family: Arial, sans-serif;
+                        color: #333;
+                        padding: 0;
+                        margin: 0;
+                        background: url('/static/ethiopian-food-background.jpg') no-repeat center center fixed;
+                        background-size: cover;
+                      }
+
+                      .container {
+                        max-width: 800px;
+                        margin: 0 auto;
+                        padding: 20px;
+                        background-color: rgba(255, 255, 255, 0.8);
+                        border-radius: 10px;
+                      }
+
+                      h1, h2 {
+                        color: #2c3e50;
+                      }
+
+                      form {
+                        margin-bottom: 20px;
+                        padding: 10px;
+                        background-color: #fff;
+                        border-radius: 8px;
+                        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+                      }
+
+                      label {
+                        margin-right: 10px;
+                        font-weight: bold;
+                      }
+
+                      select, button {
+                        margin-right: 10px;
+                        padding: 10px;
+                        border-radius: 5px;
+                        border: 1px solid #ccc;
+                      }
+
+                      select {
+                        background-color: #fafafa;
+                      }
+
+                      button {
+                        background-color: #3498db;
+                        color: white;
+                        border: none;
+                        cursor: pointer;
+                        font-weight: bold;
+                      }
+
+                      button:hover {
+                        background-color: #2980b9;
+                      }
+
+                      ul {
+                        list-style-type: none;
+                        padding: 0;
+                      }
+
+                      li {
+                        background-color: #ecf0f1;
+                        margin: 5px 0;
+                        padding: 10px;
+                        border-radius: 5px;
+                        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+                      }
+
+                      #recommendations h2 {
+                        color: #27ae60;
+                      }

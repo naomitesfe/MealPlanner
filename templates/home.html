@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ app_name }}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to {{ app_name }}</h1>
+        <form id="preferences-form">
+            <label for="preference">Select Preference:</label>
+            <select id="preference" name="preference">
+                <option value="non_fasting">Non-Fasting</option>
+                <option value="fasting">Fasting</option>
+            </select>
+
+            <label for="meal_type">Select Meal Type:</label>
+            <select id="meal_type" name="meal_type">
+                <option value="all">All</option>
+                <option value="breakfast">Breakfast</option>
+                <option value="lunch">Lunch</option>
+                <option value="dinner">Dinner</option>
+                <option value="snacks">Snacks</option>
+            </select>
+
+            <button type="button" onclick="getRecommendations()">Get Recommendations</button>
+        </form>
+
+        <div id="recommendations">
+            <!-- Recommendations will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        function getRecommendations() {
+            const preference = document.getElementById('preference').value;
+            const mealType = document.getElementById('meal_type').value;
+            fetch(`/api/recommendations?preference=${preference}&meal_type=${mealType}`)
+                .then(response => response.json())
+                .then(data => {
+                    let output = '<h2>Recommendations:</h2>';
+                    for (const [mealType, meals] of Object.entries(data)) {
+                        output += `<h3>${mealType.charAt(0).toUpperCase() + mealType.slice(1)}</h3><ul>`;
+                        meals.forEach(meal => {
+                            output += `<li>${meal}</li>`;
+                        });
+                        output += '</ul>';
+                    }
+                    document.getElementById('recommendations').innerHTML = output;
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
